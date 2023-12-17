@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+}
+
+.topBar {
+    height: 4rem;
+    width: 100%;
+    background-color: rgb(223, 221, 221);
+    position: fixed;
+    top: 0;
+}
+
+.main {
+    height: 55rem;
+    width: 40rem;
+    margin: 5rem auto 3rem auto;
+    padding: 2rem;
+}
+
+.layout {
+    height: 48rem;
+    width: 100%;
+}
+
+.seat {
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    font-size: small;
+    border-radius: 15%;
+    padding-top: 0.2em;
+    margin: 0.3rem 0 0 0.3rem;
+}
+
+.content>div {
+    display: inline-block;
+    margin-top: 0.4rem;
+}
+
+.bottomBar{
+    height: 2rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.877);
+    position: fixed;
+    bottom: 0;
+}
+
+.selected-seat{
+    background-color: rgb(35, 192, 35);
+    color: white;
+    border: 1px solid rgb(35, 192, 35);
+}
+
+.available-seat{
+    background-color: white;
+    border: 1px solid green;
+    color: green;
+}
+
+.sold-seat{
+    background-color: rgb(220, 223, 222);
+    color: white;
+    border: 1px solid rgb(220, 223, 222);
+}
+
+.reserved-seat{
+    background-color: white;
+    border: 1px solid gold;
+    color: gold;
+}
+
+.bbSeat{
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 15%;
+    display: inline-block;
+}
+
+.content{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.content span{
+    position: relative;
+    bottom: 0.2rem;
+}
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.screen img{
+    height: 2rem;
+    width: 20rem;
+    background-size: cover;
+    display: block;
+}
+
+.hidden{
+    height: 1.2rem;
+    width: 1.2rem;
+    display: inline-block;
+    visibility: hidden;
+}
+
+.rowNo{
+    height: 1.4rem;
+    width: 1.4rem;
+    display: inline-block;
+    border: none;
+    background-color: none;
+    margin: 0.4rem 0;
+    text-align: center;
+    font-size: small;
+}
+
+hr{
+    margin: 0.5rem 0 0.5rem 0;
+}
