@@ -12,7 +12,7 @@
 
 .main {
     height: 55rem;
-    width: 40rem;
+    width: 37rem;
     margin: 5rem auto 3rem auto;
     padding: 2rem;
 }
@@ -121,4 +121,11 @@
 
 hr{
     margin: 0.5rem 0 0.5rem 0;
+}
+
+.price{
+    display: flex;
+    justify-content: center;
+    /* position: relative;
+    right: 1.5rem; */
 }
