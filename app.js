@@ -96,31 +96,52 @@ seats.forEach((seat) => {
 function selectSeat(event) {
   const clickedSeat = event.target;
   console.log(clickedSeat.id);
+  console.log(clickedSeat.classList);
 
-  if (clickedSeat.id.startsWith('seat-A') || clickedSeat.id.startsWith('seat-B')) {
-    return;
+  if (selectedSeats.length == 0) {
+    if (!(clickedSeat.id.startsWith('seat-A') || clickedSeat.id.startsWith('seat-B'))) {
+      clickedSeat.classList.add('selected-seat');
+      clickedSeat.classList.remove('available-seat');
+      selectedSeats.push(clickedSeat);
+      selectedSeatsId.push(clickedSeat.id);
+    } else {
+      clickedSeat.classList.remove('reserved-seat');
+      clickedSeat.classList.add('reserved-selected-seat');
+      selectedSeats.push(clickedSeat);
+      selectedSeatsId.push(clickedSeat.id);
+      return;
+    }
   }
 
-  if (selectedSeats.includes(clickedSeat)) {
-    clickedSeat.classList.remove('selected-seat');
-    clickedSeat.classList.add('available-seat');
-    selectedSeats = selectedSeats.filter((seat) => seat !== clickedSeat);
-    selectedSeatsId = selectedSeatsId.filter((id) => id !== clickedSeat.id);
+  if (clickedSeat.id.startsWith('seat-A') || clickedSeat.id.startsWith('seat-B')) {
+    if (selectedSeats.includes(clickedSeat)) {
+      clickedSeat.classList.remove('reserved-selected-seat');
+      clickedSeat.classList.add('reserved-seat');
+      selectedSeats = selectedSeats.filter((seat) => seat !== clickedSeat);
+      selectedSeatsId = selectedSeatsId.filter((id) => id !== clickedSeat.id);
+    } else {
+      return;
+    }
   } else {
-    if (selectedSeats.length < 2) {
+    if (selectedSeats.includes(clickedSeat)) {
+      clickedSeat.classList.remove('selected-seat');
+      clickedSeat.classList.add('available-seat');
+      selectedSeats = selectedSeats.filter((seat) => seat !== clickedSeat);
+      selectedSeatsId = selectedSeatsId.filter((id) => id !== clickedSeat.id);
+    } else {
       clickedSeat.classList.add('selected-seat');
       clickedSeat.classList.remove('available-seat');
       selectedSeats.push(clickedSeat);
       selectedSeatsId.push(clickedSeat.id);
     }
   }
+  
+    console.log(selectedSeats);
+    console.log(selectedSeatsId);
 
-  console.log(selectedSeats);
-  console.log(selectedSeatsId);
+    var expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate()+1);
+    document.cookie = `selectedSeats =${selectedSeatsId.join(',')} ; expires=expirationDate ;`
 
-  var expirationDate = new Date();
-  expirationDate.setDate(expirationDate.getDate()+1);
-  document.cookie = `selectedSeats =${selectedSeatsId.join(',')} ; expires=expirationDate ;`
-
+  
 }
-

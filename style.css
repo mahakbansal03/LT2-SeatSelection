@@ -47,16 +47,16 @@
     bottom: 0;
 }
 
-.selected-seat{
-    background-color: rgb(35, 192, 35);
-    color: white;
-    border: 1px solid rgb(35, 192, 35);
-}
-
 .available-seat{
     background-color: white;
     border: 1px solid green;
     color: green;
+}
+
+.selected-seat{
+    background-color: rgb(35, 192, 35);
+    color: white;
+    border: 1px solid rgb(35, 192, 35);
 }
 
 .sold-seat{
@@ -69,6 +69,12 @@
     background-color: white;
     border: 1px solid gold;
     color: gold;
+}
+
+.reserved-selected-seat{
+    background-color: gold;
+    border: 1px solid gold;
+    color: white;
 }
 
 .bbSeat{
